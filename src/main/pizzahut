@@ -1,0 +1,38 @@
+
+
+public class pizzahut {
+	public static String delivery(Queue<Wolter> q1,int x) {
+		q1.insert(new Wolter ("000",0));
+		String print = "no one";
+		while (q1.head().getCc()!=0) {
+			if (q1.head().getCc()>=x) {
+				print =q1.head().getId();
+				q1.remove();
+				while (q1.head().getCc()!=0) {
+					q1.remove();
+					q1.insert(q1.remove());
+				}
+			}
+			else {
+				q1.remove();
+				q1.insert(q1.remove());		
+		}
+	}
+		q1.remove();
+		return print;
+	}	
+
+	public static void main(String[] args) {
+		Queue <Wolter> q=new Queue <Wolter>();
+		q.insert(new Wolter ("715251",456));
+		q.insert(new Wolter ("715252",200));
+		q.insert(new Wolter ("715253",700));
+		q.insert(new Wolter ("715254",800));
+		q.insert(new Wolter ("715255",150));
+		q.insert(new Wolter ("715256",300));
+		q.insert(new Wolter ("715257",222));
+		System.out.println(delivery(q,720));
+		}
+
+	}
+
